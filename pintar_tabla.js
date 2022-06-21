@@ -4,18 +4,21 @@ var fechas_usuarios=[];
 var horas_usuarios=[];
 
 var fechaHoy = new Date();
+var horas_usuarios_fin=[];
 
 if(localStorage.getItem("codigos_usuarios") == null)
 {
     codigos_usuarios = [];
     fechas_usuarios=[];
     horas_usuarios=[];
+    horas_usuarios_fin=[];
 }
 else
 {
     codigos_usuarios =JSON.parse(localStorage.getItem("codigos_usuarios"));
     fechas_usuarios=JSON.parse(localStorage.getItem("fechas_usuarios"));
     horas_usuarios=JSON.parse(localStorage.getItem("horas_usuarios"));
+    horas_usuarios_fin=JSON.parse(localStorage.getItem("horas_usuarios_fin"));
     pintar();
 }
 
@@ -45,4 +48,10 @@ function pintar()
 function pintarHora()
 {
 
+}
+
+function salirDato(){
+    var hora = fechaHoy.getHours() + ':' + fechaHoy.getMinutes();
+    horas_usuarios_fin.push(hora);
+    localStorage.setItem("horas_usuarios_fin", JSON.stringify(horas_usuarios_fin));
 }
