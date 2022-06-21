@@ -4,18 +4,97 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"rel="stylesheet"/>
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"rel="stylesheet"/>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <form action="submit">
-
-        <label for="codigo">Añade tu código</label>
-        <input id="codigo" type="text" required>
-        <a>algo</a>
-        <p>pepe</p>
-        <p>algo2</p>
-        <a>alv estoy cansado</a>
-        <p>marico el que lo lea</p>
-    </form>
+    <section class="text-center text-lg-start jq-section"  id="jp-sign-up" class="jq-section">
+        <style>
+          .cascading-right {
+            margin-right: -50px;
+          }
+      
+          @media (max-width: 991.98px) {
+            .cascading-right {
+              margin-right: 0;
+            }
+          }
+        </style>
+      
+        <!-- Jumbotron -->
+        <div class="container py-4">
+          <div class="row g-0 align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <div class="card cascading-right" style="
+                  background: hsla(0, 0%, 100%, 0.55);
+                  backdrop-filter: blur(30px);
+                  ">
+                <div class="card-body p-5 shadow-5 text-center">
+                  <h2 class="fw-bold mb-5">Sign up now</h2>
+                  <form>
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                      <input type="email" id="form3Example3" class="form-control" />
+                      <label class="form-label" for="form3Example3">Email address</label>
+                    </div>
+      
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                      <input type="password" id="form3Example4" class="form-control" />
+                      <label class="form-label" for="form3Example4">Password</label>
+                    </div>
+      
+                    <!-- Checkbox -->
+                    <div class="form-check d-flex  mb-4">
+                      <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                      <label class="form-check-label" for="form2Example33">
+                        Subscribe to our newsletter
+                      </label>
+                    </div>
+      
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-4">
+                      Sign up
+                    </button>
+      
+                    <!-- Register buttons -->
+                    <div class="text-center">
+                      <p>or sign up with:</p>
+                      <button type="button" class="btn btn-link btn-floating mx-1">
+                        <i class="fab fa-facebook-f"></i>
+                      </button>
+      
+                      <button type="button" class="btn btn-link btn-floating mx-1">
+                        <i class="fab fa-google"></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+      
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <img src="https://media3.giphy.com/media/78L8WH8nMgULhUXX5O/giphy.gif?cid=790b76116703d13f47f880148647178d5b122d5ee47b517b&rid=giphy.gif&ct=g" class="w-100 rounded-4 shadow-4"
+                alt="" />
+            </div>
+          </div>
+        </div>
+        <!-- Jumbotron -->
+      </section>
 </body>
 </html>
