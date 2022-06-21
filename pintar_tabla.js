@@ -42,7 +42,15 @@ function pintar()
         row.appendChild(hor);
     }
 }
+pintarHora();
 function pintarHora()
 {
-
+    console.log("estoy en pintar hora");
+    const horaUltimo = document.querySelector("#hora");
+    hours = fechaHoy.getHours();
+    minutes = fechaHoy.getMinutes();
+    if (hours < 10) hours = 0 + hours;
+    if (minutes < 10) minutes = "0" + minutes;
+    horaUltimo.textContent=hours+ ":" +minutes;
 }
+setInterval("pintarHora()", 1000);
