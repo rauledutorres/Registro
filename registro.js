@@ -1,35 +1,32 @@
 //datos
-var codigos_usuarios = [];
-var fechas_usuarios=[];
-var horas_usuarios=[];
-if(localStorage.getItem("codigos_usuarios") == null)
+var usuarios = [];
+var codigo;
+if(localStorage.getItem("usuarios") == null)
 {
-    codigos_usuarios = [];
-    fechas_usuarios=[];
-    horas_usuarios=[];
+    usuarios = [];
+
 }
 else
 {
-    codigos_usuarios =JSON.parse(localStorage.getItem("codigos_usuarios"));
-    fechas_usuarios=JSON.parse(localStorage.getItem("fechas_usuarios"));
-    horas_usuarios=JSON.parse(localStorage.getItem("horas_usuarios"));
+    usuarios =JSON.parse(localStorage.getItem("usuarios"));
 }
 
 //comprobar la informacion
 function comprobarDatos()
 {
     const codigo_usario = document.querySelector("#codigo_usuario");
-    var codigo = codigo_usario.value;
+     codigo = codigo_usario.value;
     if(codigo)
     {
          //obtenemos la fecha y hora del usuario despues de logiarse.
             var fechaHoy = new Date();
             var fechaAct = fechaHoy.getDate() + "/" + (fechaHoy.getMonth()+1) + "/" + fechaHoy.getFullYear();
             var hora = fechaHoy.getHours() + ':' + fechaHoy.getMinutes();
+            var hora_salida = "";
+            var fecha_salida="";
+            var objeto_usuario = {codigo,fechaAct,hora,hora_salida,fecha_salida};
             // guardamos la fecha y la hora
-            codigos_usuarios.push(codigo);
-            fechas_usuarios.push(fechaAct);
-            horas_usuarios.push(hora);
+            usuarios.push(objeto_usuario);
             guardarDatos();
     }
 }
@@ -37,7 +34,6 @@ function comprobarDatos()
 function guardarDatos()
 {
     //guarda DATOSS USUARIO
-    localStorage.setItem("codigos_usuarios",JSON.stringify(codigos_usuarios));
-    localStorage.setItem("fechas_usuarios",JSON.stringify(fechas_usuarios));
-    localStorage.setItem("horas_usuarios",JSON.stringify(horas_usuarios));
+    localStorage.setItem("usuarios",JSON.stringify(usuarios));
+    localStorage.setItem("codigo_usuario",JSON.stringify(codigo));
 }
