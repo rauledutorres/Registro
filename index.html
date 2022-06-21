@@ -36,6 +36,18 @@
         </style>
         <!-- Jumbotron -->
         <div class="container py-4">
+          <!-- Pills navs -->
+          <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+                aria-controls="pills-login" aria-selected="true">Login</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+                aria-controls="pills-register" aria-selected="false">Register</a>
+            </li>
+          </ul>
+          <!-- Pills navs -->
           <div class="row g-0 align-items-center">
             <div class="col-lg-6 mb-5 mb-lg-0">
               <div class="card cascading-right" style="
@@ -43,18 +55,40 @@
                   backdrop-filter: blur(30px);
                   ">
                 <div class="card-body p-5 shadow-5 text-center">
-                  <h2 class="fw-bold mb-5">Sign up now</h2>
-                  <form>
-                    <!-- Email input -->
-                    <div class="form-outline mb-4">
-                      <input type="text" id="codigo_usuario" class="form-control" />
-                      <label class="form-label" for="form3Example3">Codigo</label>
+                  <!-- Pills content -->
+                  <div class="tab-content">
+                    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                      <h2 class="fw-bold mb-5">Sign up now</h2>
+                      <form>
+                        <!-- Codigo input -->
+                        <div class="form-outline mb-4">
+                          <input type="password" id="loginPassword" class="form-control" />
+                          <label class="form-label" for="loginPassword">Codigo</label>
+                        </div>
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                      </form>
                     </div>
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4" onclick="comprobarDatos()">
-                      Sign up
-                    </button>
-                  </form>
+                    <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+                      <h2 class="fw-bold mb-5">Sign in now</h2>
+                      <form>
+                        <!-- Username input -->
+                        <div class="form-outline mb-4">
+                          <input type="text" id="registerUsername" class="form-control" />
+                          <label class="form-label" for="registerUsername">Username</label>
+                        </div>
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                          <input type="email" id="registerEmail" class="form-control" />
+                          <label class="form-label" for="registerEmail">Codigo</label>
+                        </div>
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- Pills content -->
                 </div>
               </div>
             </div>
