@@ -62,11 +62,11 @@
                       <form>
                         <!-- Codigo input -->
                         <div class="form-outline mb-4">
-                          <input type="password" id="loginPassword" class="form-control" />
+                          <input type="text" id="codigo" class="form-control" required/>
                           <label class="form-label" for="loginPassword">Codigo</label>
                         </div>
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                        <button type="submit" class="btn btn-primary btn-block mb-4" onclick="comprobarDatos()">Sign in</button>
                       </form>
                     </div>
                     <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
@@ -74,17 +74,16 @@
                       <form>
                         <!-- Username input -->
                         <div class="form-outline mb-4">
-                          <input type="text" id="registerUsername" class="form-control" />
-                          <label class="form-label" for="registerUsername">Username</label>
+                          <input type="text" id="nombre_usuario" class="form-control" required/>
+                          <label class="form-label" for="registerUsername">Name</label>
                         </div>
-
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                          <input type="email" id="registerEmail" class="form-control" />
-                          <label class="form-label" for="registerEmail">Codigo</label>
+                          <input type="text" id="codigo_usuario" class="form-control" required/>
+                          <label class="form-label" for="loginPassword">Codigo</label>
                         </div>
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+                        <button type="submit" class="btn btn-primary btn-block mb-3" onclick="registro()">Sign in</button>
                       </form>
                     </div>
                   </div>
