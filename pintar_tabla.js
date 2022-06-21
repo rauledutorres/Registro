@@ -1,6 +1,8 @@
 //datos
 var usuarios = [];
 
+var fechaHoy = new Date();
+var horas_usuarios_fin=[];
 
 if(localStorage.getItem("usuarios") == null)
 {
