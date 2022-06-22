@@ -99,7 +99,7 @@ function salirDato(){
         }
     }
     localStorage.setItem("usuarios", JSON.stringify(usuarioExit));
-    window.location.assign("http://127.0.0.1:5500/index.html?");
+    window.location.assign("https://ispipa.github.io/Registro/index.html");
 }
 function calcaularTiempo(i)
 {

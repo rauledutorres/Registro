@@ -114,7 +114,7 @@ function comprobarDatos()
         }
       
         if ( document.querySelector("#codigo").value!=="") {
-            window.location.assign("https://ispipa.github.io/Registro/Tabla.html#");
+            window.location.assign("https://ispipa.github.io/Registro/Tabla.html");
         }else{
             alert("Ingrese datos");
         }
