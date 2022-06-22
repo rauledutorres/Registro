@@ -102,6 +102,7 @@ function salirDato(){
         }
     }
     localStorage.setItem("usuarios", JSON.stringify(usuarioExit));
+    window.location.assign("http://127.0.0.1:5500/index.html?");
 }
 function calcaularTiempo()
 {
@@ -112,25 +113,25 @@ function calcaularTiempo()
         if(usuarioHora[i].objeto_fecha.hora_salida == "")
         {
             return usuarioHora[i].objeto_fecha.hora; 
-    }
-    else
-    {
-        if(usuarioHora[i] == usuarioHora[ultimaFila])
+        }
+        else
         {
-            var horasEnter = usuarioHora[i].objeto_fecha.hora;
-            var horasSalida = usuarioHora[i].objeto_fecha.hora_salida;
-            var horasMinutosEnt = horasEnter.split(":");
-            var horasMinutosSal = horasSalida.split(":");
-            var horaEnter = horasMinutosEnt[0];
-            var minutoEnter = horasMinutosEnt[1];
-            var horaSalida = horasMinutosSal[0];
-            var minutoSalida = horasMinutosSal[1];
-            var totalEnter = (parseInt(horaEnter) * 60) + parseInt(minutoEnter);
-            var totalSalida = (parseInt(horaSalida) * 60) + parseInt(minutoSalida);
+            if(usuarioHora[i] == usuarioHora[ultimaFila])
+            {
+                var horasEnter = usuarioHora[i].objeto_fecha.hora;
+                var horasSalida = usuarioHora[i].objeto_fecha.hora_salida;
+                var horasMinutosEnt = horasEnter.split(":");
+                var horasMinutosSal = horasSalida.split(":");
+                var horaEnter = horasMinutosEnt[0];
+                var minutoEnter = horasMinutosEnt[1];
+                var horaSalida = horasMinutosSal[0];
+                var minutoSalida = horasMinutosSal[1];
+                var totalEnter = (parseInt(horaEnter) * 60) + parseInt(minutoEnter);
+                var totalSalida = (parseInt(horaSalida) * 60) + parseInt(minutoSalida);
 
-        return (totalSalida - totalEnter);      
-        } 
-    }
+            return (totalSalida - totalEnter);      
+            } 
+        }
 }
 
 }
@@ -149,7 +150,3 @@ function visible(){
     }
 }
 btn_register.addEventListener('click',visible);
-///////////////////////////////////////////////////////////////////////////////////
-function salirDato(){
-    window.location.assign("http://127.0.0.1:5500/index.html?");
-}
