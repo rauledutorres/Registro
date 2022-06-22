@@ -40,7 +40,8 @@
         </form>
       </div>
     </nav>
-    <section class="container mt-5">
+    <section class="container mt-5" data-aos="fade-down"
+    data-aos-duration="3000">
       <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto">
           <div class="card mb-5">
@@ -58,7 +59,8 @@
         </div>
     </div>
     </section>
-    <section id="tab2" class="container mb-5" style="visibility: hidden;" >
+    <section id="tab2" class="container mb-5 ani aos-init" style="visibility: hidden;" data-aos="fade-up"
+    data-aos-duration="3000">
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto">
                 <table class="table">
@@ -85,5 +87,8 @@
         </div>
     </section>
     <script src="pintar_tabla.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>

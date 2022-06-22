@@ -11,7 +11,7 @@ else
 {
     usuarios =JSON.parse(localStorage.getItem("usuarios"));
     pintarCarta();
-    pintar();
+    pintar()
 }
 
 function pintarCarta(){
@@ -140,9 +140,11 @@ function convertirMinutos(minutos)
     console.log(total);
     return (total);
 }
+var bool = true;
 const btn_register=document.querySelector("#boton");
 function visible(){
-    const x = document.querySelector("#tab2")
+    const x = document.querySelector("#tab2");
+    const pint2 = document.querySelector(".ani");
     if( x.style.visibility === "hidden" )
     {
         x.style.visibility = ("visible");
@@ -150,6 +152,18 @@ function visible(){
     else
     {
         x.style.visibility= ("hidden");
+    }
+    if(bool)
+    {
+        pint2.setAttribute("data-aos-duration","3000");
+        pint2.classList.add('aos-animate');
+        bool = false;
+    }
+    else 
+    {
+        pint2.removeAttribute("data-aos-duration");
+        pint2.classList.remove('aos-animate');
+        bool = true;
     }
 }
 btn_register.addEventListener('click',visible);
