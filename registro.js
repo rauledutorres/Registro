@@ -26,6 +26,7 @@ function registro()
         var usuario={codigo,nombre,img};
         resgistro_usuarios.push(usuario);
         guardarDatos();
+
     }
     else
     {
@@ -43,6 +44,7 @@ function registro()
             }
         }
         guardarDatos();
+        
     }
 }
 //comprobar la informacion
@@ -84,6 +86,7 @@ function comprobarDatos()
              usuarios.push(objeto);
              bool = true
              guardarDatos();
+             
             }
         }
         if(!bool)
@@ -93,7 +96,9 @@ function comprobarDatos()
         else
         {
             localStorage.setItem("codigo_usuario",JSON.stringify(codigo));
+            
         }
+        window.location.assign("http://127.0.0.1:5500/Tabla.html#");
     }
     
 }

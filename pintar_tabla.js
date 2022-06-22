@@ -1,7 +1,6 @@
 //datos
 var usuarios = [];
 
-var fechaHoy = new Date();
 var horas_usuarios_fin=[];
 
 if(localStorage.getItem("usuarios") == null)
@@ -35,11 +34,7 @@ function pintarCarta(){
     cuerpoCarta.appendChild(h6);
             
     }
-
-
 }
-
-
 function pintar()
 {
     var timediff = calcaularTiempo();
@@ -141,3 +136,17 @@ function calcaularTiempo()
 }
 
 calcaularTiempo();
+const btn_register=document.querySelector("#boton");
+function visible(){
+    const x = document.querySelector("#tab2")
+    if( x.style.visibility === "hidden" )
+    {
+        x.style.visibility = ("visible");
+    }
+    else
+    {
+        x.style.visibility= ("hidden");
+    }
+}
+btn_register.addEventListener('click',visible);
+
