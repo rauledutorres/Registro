@@ -98,7 +98,13 @@ function comprobarDatos()
             localStorage.setItem("codigo_usuario",JSON.stringify(codigo));
             
         }
-        window.location.assign("http://127.0.0.1:5500/Tabla.html#");
+      
+        if ( document.querySelector("#codigo").value!=="") {
+            window.location.assign("http://127.0.0.1:5500/Tabla.html#");
+        }else{
+            alert("Ingrese datos");
+        }
+        
     }
     
 }
