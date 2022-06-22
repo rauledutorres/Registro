@@ -26,6 +26,7 @@ function registro()
         var usuario={codigo,nombre,img}
         resgistro_usuarios.push(usuario);
         guardarDatos();
+        window.location.assign("http://127.0.0.1:5500/Tabla.html#")
     }
     else
     {
@@ -43,6 +44,7 @@ function registro()
             }
         }
         guardarDatos();
+        window.location.assign("http://127.0.0.1:5500/Tabla.html#")
     }
 }
 //comprobar la informacion

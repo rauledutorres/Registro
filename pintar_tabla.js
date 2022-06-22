@@ -35,11 +35,7 @@ function pintarCarta(){
     cuerpoCarta.appendChild(h6);
             
     }
-
-
 }
-
-
 function pintar()
 {
     const pint=document.querySelector("#table2");
