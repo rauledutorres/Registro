@@ -1,7 +1,6 @@
 //datos
 var usuarios = [];
 var resgistro_usuarios=[];
-
 if(localStorage.getItem("usuarios") == null)
 {
     usuarios = [];
@@ -50,6 +49,7 @@ function comprobarDatos()
     const codigo_usario = document.querySelector("#codigo");
     const lista_usuarios = JSON.parse(localStorage.getItem("resgistro_usuarios"));
     var codigo = codigo_usario.value;
+    var bool = false;
     if(localStorage.getItem("resgistro_usuarios") == null)
     {
         alert("Por favor registrate");
@@ -58,7 +58,8 @@ function comprobarDatos()
     {
         for (let i = 0; i < lista_usuarios.length; i++)
         {
-            if(lista_usuarios[i].codigo == codigo)
+            console.log(lista_usuarios[i].codigo);
+            if(lista_usuarios[i].codigo.indexOf(codigo) !== -1)
             {
                 //obtenemos la fecha y hora del usuario despues de logiarse.
                 var fechaHoy = new Date();
@@ -79,14 +80,18 @@ function comprobarDatos()
                     },
                 }
              usuarios.push(objeto);
-            }
-            else
-            {
-                alert("No hay ningun usuario con esta contraseña");
+             bool = true
+             guardarDatos();
             }
         }
-        localStorage.setItem("codigo_usuario",JSON.stringify(codigo));
-            guardarDatos();
+        if(!bool)
+        {
+                alert("No hay ningun usuario con esta contraseña");
+        }
+        else
+        {
+            localStorage.setItem("codigo_usuario",JSON.stringify(codigo));
+        }
     }
     
 }
