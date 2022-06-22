@@ -40,7 +40,6 @@ function pintar()
 {
     const pint=document.querySelector("#table2");
     var codigo_usuario = JSON.parse(localStorage.getItem("codigo_usuario"));
-    console.log(usuarios[0].objeto_fecha.fechaAct);
     for (let i = 0; i< usuarios.length; i++) 
     {
         var row=document.createElement("tr");
