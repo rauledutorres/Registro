@@ -24,14 +24,20 @@ function pintarCarta(){
     for (let i = 0; i < registroUsuario.length; i++) {
         var h5 = document.createElement("h5");
         var h6 = document.createElement("h6");
+        var h7 = document.createElement("h7");
+        var h8 = document.createElement("h8");
         if(registroUsuario[i].codigo === codigo_usuario )
         {
-            h5.innerText = registroUsuario[i].nombre;
-            h6.innerText = registroUsuario[i].codigo;
+            h5.innerText = "Nombre:\n  " + registroUsuario[i].nombre;
+            h6.innerText = "Codigo:\n  " + registroUsuario[i].codigo;
+            h7.innerText = "Hora de entrada:\n  " + usuarios[usuarios.length -1].objeto_fecha.hora +"\n";
+            h8.innerText = "Fecha de entrada:\n  " + usuarios[usuarios.length -1].objeto_fecha.fechaAct;
             imgCarta.setAttribute("src", registroUsuario[i].img);
         }
     cuerpoCarta.appendChild(h5);
     cuerpoCarta.appendChild(h6);
+    cuerpoCarta.appendChild(h7);
+    cuerpoCarta.appendChild(h8);
             
     }
 }
@@ -103,7 +109,8 @@ function calcaularTiempo(i)
         console.log(usuarioHora[i].objeto_fecha.hora_salida);
         if(usuarioHora[i].objeto_fecha.hora_salida == "")
         {
-            return usuarioHora[i].objeto_fecha.hora; 
+            //return usuarioHora[i].objeto_fecha.hora;
+            return "Calculando el tiempo";
         }
         else
         {
@@ -117,20 +124,21 @@ function calcaularTiempo(i)
                 var minutoSalida = horasMinutosSal[1];
                 var totalEnter = (parseInt(horaEnter) * 60) + parseInt(minutoEnter);
                 var totalSalida = (parseInt(horaSalida) * 60) + parseInt(minutoSalida);
-
-            return convertirMinutos(totalSalida - totalEnter);      
+                var total = totalSalida - totalEnter;
+            return convertirMinutos(total);      
         }
     }
 }
 function convertirMinutos(minutos)
 {
     console.log(minutos);
-    var horas = Math.floor(minutos / 3600);
+    var horas = Math.floor(minutos / 60);
     horas = (horas < 10)? '0' + horas : horas;
-    var minutos = Math.floor((minutos / 60) % 60);
+    var minutos = Math.floor((minutos % 60));
     minutos = (minutos < 10)? '0' + minutos : minutos;
-    console.log(horas + ":" + minutos);
-    return (horas + ":" + minutos);
+    var total = horas + ":" + minutos;
+    console.log(total);
+    return (total);
 }
 const btn_register=document.querySelector("#boton");
 function visible(){

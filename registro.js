@@ -23,9 +23,16 @@ function registro()
     var img = img_usuario.value;
     if(localStorage.getItem("resgistro_usuarios") == null)
     {
-        var usuario={codigo,nombre,img};
-        resgistro_usuarios.push(usuario);
-        guardarDatos();
+        if(codigo && nombre && img)
+        {
+            var usuario={codigo,nombre,img};
+            resgistro_usuarios.push(usuario);
+            guardarDatos();
+        }
+        else
+        {
+            alert("Ingrese los datos");
+        }
 
     }
     else
@@ -38,8 +45,15 @@ function registro()
             }
             else
             {
-                var usuario={codigo,nombre,img};
-                resgistro_usuarios.push(usuario);
+                if(codigo && nombre && img)
+                {
+                    var usuario={codigo,nombre,img};
+                    resgistro_usuarios.push(usuario);
+                }
+                else
+                {
+                    alert("Ingrese los datos");
+                }
                 
             }
         }
