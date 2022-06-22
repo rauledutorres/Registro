@@ -20,10 +20,10 @@ function registro()
     const lista_usuarios = JSON.parse(localStorage.getItem("resgistro_usuarios"));
     var codigo = codigo_usario.value;
     var nombre = nombre_usuario.value;
-    var img =img_usuario.value;
+    var img = img_usuario.value;
     if(localStorage.getItem("resgistro_usuarios") == null)
     {
-        var usuario={codigo,nombre,img}
+        var usuario={codigo,nombre,img};
         resgistro_usuarios.push(usuario);
         guardarDatos();
     }
@@ -37,7 +37,7 @@ function registro()
             }
             else
             {
-                var usuario={codigo,nombre,img}
+                var usuario={codigo,nombre,img};
                 resgistro_usuarios.push(usuario);
                 
             }
