@@ -37,29 +37,20 @@ function pintarCarta(){
 }
 function pintar()
 {
-    var timediff = calcaularTiempo();
-    const pint=document.querySelector("#table2");
+    const pint = document.querySelector("#table2");
     var codigo_usuario = JSON.parse(localStorage.getItem("codigo_usuario"));
-    var penulimoObjeto = usuarios.length -2;
     console.log(usuarios[0].objeto_fecha.fechaAct);
     for (let i = 0; i< usuarios.length; i++) 
     {
-        var row=document.createElement("tr");
-        var cod=document.createElement("td");
-        var fech=document.createElement("td");
-        var hor=document.createElement("td");
+        var row = document.createElement("tr");
+        var cod = document.createElement("td");
+        var fech = document.createElement("td");
+        var hor = document.createElement("td");
         if(usuarios[i].codigo === codigo_usuario)
         {
-            cod.textContent=usuarios[i].codigo;
-            fech.textContent=usuarios[i].objeto_fecha.fechaAct;
-            if(i <= usuarios.length - 2 )
-            {
-                hor.textContent=timediff;
-            }
-            else
-            {
-                hor.textContent=usuarios[i].objeto_fecha.hora;
-            }
+            cod.textContent = usuarios[i].codigo;
+            fech.textContent = usuarios[i].objeto_fecha.fechaAct;
+            hor.textContent = calcaularTiempo(i);
             pint.appendChild(row);
             row.appendChild(cod);
             row.appendChild(fech);
@@ -104,20 +95,18 @@ function salirDato(){
     localStorage.setItem("usuarios", JSON.stringify(usuarioExit));
     window.location.assign("http://127.0.0.1:5500/index.html?");
 }
-function calcaularTiempo()
+function calcaularTiempo(i)
 {
     var usuarioHora = JSON.parse(localStorage.getItem("usuarios"));
-    var ultimaFila = usuarioHora.length -1;
-    for (let i = 0; i < usuarioHora.length; i++) 
+    for (i; i < usuarioHora.length; i++) 
     {
+        console.log(usuarioHora[i].objeto_fecha.hora_salida);
         if(usuarioHora[i].objeto_fecha.hora_salida == "")
         {
             return usuarioHora[i].objeto_fecha.hora; 
         }
         else
         {
-            if(usuarioHora[i] == usuarioHora[ultimaFila])
-            {
                 var horasEnter = usuarioHora[i].objeto_fecha.hora;
                 var horasSalida = usuarioHora[i].objeto_fecha.hora_salida;
                 var horasMinutosEnt = horasEnter.split(":");
@@ -129,14 +118,20 @@ function calcaularTiempo()
                 var totalEnter = (parseInt(horaEnter) * 60) + parseInt(minutoEnter);
                 var totalSalida = (parseInt(horaSalida) * 60) + parseInt(minutoSalida);
 
-            return (totalSalida - totalEnter);      
-            } 
+            return convertirMinutos(totalSalida - totalEnter);      
         }
+    }
 }
-
+function convertirMinutos(minutos)
+{
+    console.log(minutos);
+    var horas = Math.floor(minutos / 3600);
+    horas = (horas < 10)? '0' + horas : horas;
+    var minutos = Math.floor((minutos / 60) % 60);
+    minutos = (minutos < 10)? '0' + minutos : minutos;
+    console.log(horas + ":" + minutos);
+    return (horas + ":" + minutos);
 }
-
-calcaularTiempo();
 const btn_register=document.querySelector("#boton");
 function visible(){
     const x = document.querySelector("#tab2")
