@@ -1,87 +1,99 @@
 //datos
 var usuarios = [];
-var codigo;
-var nombre_usuario
+var resgistro_usuarios=[];
+
 if(localStorage.getItem("usuarios") == null)
 {
     usuarios = [];
+    resgistro_usuarios=[];
 
 }
 else
 {
     usuarios =JSON.parse(localStorage.getItem("usuarios"));
+    resgistro_usuarios =JSON.parse(localStorage.getItem("resgistro_usuarios"));
 }
-//registro usuario
 function registro()
 {
-    const nombre = document.querySelector("#nombre_usuario");
     const codigo_usario = document.querySelector("#codigo_usuario");
-    var lista_usuarios = JSON.parse(localStorage.getItem("usuarios"));
-    codigo = codigo_usario.value;
-    nombre_usuario = nombre.value;
-    if(localStorage.getItem("usuarios") == null)
+    const nombre_usuario = document.querySelector("#nombre_usuario");
+    const lista_usuarios = JSON.parse(localStorage.getItem("resgistro_usuarios"));
+    var codigo = codigo_usario.value;
+    var nombre = nombre_usuario.value;
+    if(localStorage.getItem("resgistro_usuarios") == null)
     {
-            var fechaAct="";
-            var hora ="";
-            var hora_salida="";
-            var fecha_salida="";
-            var objeto_usuario = {codigo,nombre_usuario,fechaAct,hora,hora_salida,fecha_salida};
-            usuarios.push(objeto_usuario);
-            guardarDatos();
+        var usuario={codigo,nombre}
+        resgistro_usuarios.push(usuario);
+        guardarDatos();
     }
     else
     {
         for (let i = 0; i < lista_usuarios.length; i++) 
         {
-            if(lista_usuarios[i].codigo.indexOf(codigo) !== -1)
+            if(lista_usuarios[i].codigo == codigo)
             {
-                alert("Ya hay existe ese codigo");
+                alert("Este codigo ya esta registrado");
             }
             else
             {
-                var fechaAct="";
-                var hora ="";
-                var hora_salida="";
-                var fecha_salida="";
-                var objeto_usuario = {codigo,nombre_usuario,fechaAct,hora,hora_salida,fecha_salida};
-                usuarios.push(objeto_usuario);
-                guardarDatos();
+                var usuario={codigo,nombre}
+                resgistro_usuarios.push(usuario);
+                
             }
-            
         }
+        guardarDatos();
     }
 }
 //comprobar la informacion
 function comprobarDatos()
 {
     const codigo_usario = document.querySelector("#codigo");
-    var lista_usuarios = JSON.parse(localStorage.getItem("usuarios"));
-    codigo = codigo_usario.value;
-    console.log(codigo);
-    console.log(lista_usuarios[0]);
-     for (let i = 0; i < lista_usuarios.length; i++) 
-     {
-        lista_usuarios.splice(i, 1);
-        console.log(lista_usuarios);
-        if(lista_usuarios[i].codigo.indexOf(codigo) !== -1)
+    const lista_usuarios = JSON.parse(localStorage.getItem("resgistro_usuarios"));
+    var codigo = codigo_usario.value;
+    if(localStorage.getItem("resgistro_usuarios") == null)
+    {
+        alert("Por favor registrate");
+    }
+    else
+    {
+        for (let i = 0; i < lista_usuarios.length; i++)
         {
-            var fechaHoy = new Date();
-            var fechaAct = fechaHoy.getDate() + "/" + (fechaHoy.getMonth()+1) + "/" + fechaHoy.getFullYear();
-            var hora = fechaHoy.getHours() + ':' + fechaHoy.getMinutes();
-            lista_usuarios[i]['fechaAct'] = fechaAct;
-            lista_usuarios[i]['hora'] = hora;
-            console.log(lista_usuarios[i]);
-            var objeto = lista_usuarios[i];
-            // guardamos la fecha y la hora
-            usuarios.push(objeto);
-            guardarDatos();
+            if(lista_usuarios[i].codigo == codigo)
+            {
+                //obtenemos la fecha y hora del usuario despues de logiarse.
+                var fechaHoy = new Date();
+                var fechaAct = fechaHoy.getDate() + "/" + (fechaHoy.getMonth()+1) + "/" + fechaHoy.getFullYear();
+                var hora = fechaHoy.getHours() + ':' + fechaHoy.getMinutes();
+                var fecha_salida ="";
+                var hora_salida ="";
+                // guardamos la fecha y la hora
+                var objeto=
+                {
+                 codigo,
+                    objeto_fecha:
+                    {
+                        fechaAct,
+                        hora,
+                        fecha_salida,
+                        hora_salida
+                    },
+                }
+             usuarios.push(objeto);
+            }
+            else
+            {
+                alert("No hay ningun usuario con esta contraseña");
+            }
         }
-     }
+        localStorage.setItem("codigo_usuario",JSON.stringify(codigo));
+            guardarDatos();
+    }
+    
 }
 //GUARDAR LOS DATOS
 function guardarDatos()
 {
     //guarda DATOSS USUARIO
     localStorage.setItem("usuarios",JSON.stringify(usuarios));
-    localStorage.setItem("codigo_usuario",JSON.stringify(codigo));
+    localStorage.setItem("resgistro_usuarios",JSON.stringify(resgistro_usuarios));
 }
