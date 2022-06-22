@@ -11,9 +11,34 @@ if(localStorage.getItem("usuarios") == null)
 else
 {
     usuarios =JSON.parse(localStorage.getItem("usuarios"));
-
+    pintarCarta();
     pintar();
 }
+
+function pintarCarta(){
+    var cuerpoCarta = document.querySelector(".card-body");
+    var imgCarta = document.querySelector(".img-fluid");
+    var registroUsuario = JSON.parse(localStorage.getItem("resgistro_usuarios"));
+    var codigo_usuario = JSON.parse(localStorage.getItem("codigo_usuario"));
+    console.log(registroUsuario[0].img);
+    console.log(codigo_usuario);
+    for (let i = 0; i < registroUsuario.length; i++) {
+        var h5 = document.createElement("h5");
+        var h6 = document.createElement("h6");
+        if(registroUsuario[i].codigo === codigo_usuario )
+        {
+            h5.innerText = registroUsuario[i].nombre;
+            h6.innerText = registroUsuario[i].codigo;
+            imgCarta.setAttribute("src", registroUsuario[i].img);
+        }
+    cuerpoCarta.appendChild(h5);
+    cuerpoCarta.appendChild(h6);
+            
+    }
+
+
+}
+
 
 function pintar()
 {
@@ -26,7 +51,7 @@ function pintar()
         var cod=document.createElement("td");
         var fech=document.createElement("td");
         var hor=document.createElement("td");
-            if(usuarios[i].codigo === codigo_usuario )
+        if(usuarios[i].codigo === codigo_usuario )
         {
             cod.textContent=usuarios[i].codigo;
             fech.textContent=usuarios[i].objeto_fecha.fechaAct;
