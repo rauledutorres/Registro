@@ -51,3 +51,18 @@ function pintarHora()
 
 }
 setInterval("pintarHora()", 1000);
+//////////////////////////////////////////////////////////////////////////////////
+const btn_register=document.querySelector("#boton");
+function visible(){
+    const x = document.querySelector("#tab2")
+    if( x.style.visibility === "hidden" )
+    {
+        x.style.visibility = ("visible");
+    }
+    else
+    {
+        x.style.visibility= ("hidden");
+    }
+}
+btn_register.addEventListener('click',visible);
+
