@@ -120,12 +120,6 @@ function comprobarDatos()
             window.location.assign("https://ispipa.github.io/Registro/Tabla.html");
             
         }
-      
-        /*if ( document.querySelector("#codigo").value!=="") {
-            window.location.assign("https://ispipa.github.io/Registro/Tabla.html");
-        }else{
-            alert("Ingrese datos");
-        }*/
         
     }
     
@@ -137,3 +131,63 @@ function guardarDatos()
     localStorage.setItem("usuarios",JSON.stringify(usuarios));
     localStorage.setItem("resgistro_usuarios",JSON.stringify(resgistro_usuarios));
 }
+//controlar clases
+const parent = document.querySelector("#parent");
+parent.addEventListener('input', (e) => 
+{   
+    const codigo_usario = document.querySelector("#codigo_usuario");
+    const nombre_usuario = document.querySelector("#nombre_usuario");
+    const img_usuario = document.querySelector("#img_usuario");
+    var codigo = codigo_usario.value;
+    var nombre= nombre_usuario.value;
+    var img = img_usuario.value; 
+    if(codigo)
+    {
+        e.target = e.target.classList.add('active');
+    }
+    if(nombre)
+    {
+        e.target = e.target.classList.add('active');
+    }
+    if(img)
+    {
+        e.target = e.target.classList.add('active');
+    }
+     console.log(e);
+});
+const parent_codigo = document.querySelector("#parent_codigo");
+parent_codigo.addEventListener('input', (e) => 
+{   
+    const codigo_usario = document.querySelector("#codigo");
+    var codigo = codigo_usario.value;
+
+    if(codigo)
+    {
+        e.target = e.target.classList.add('active');
+    }
+     console.log(e);
+});
+//coger img
+const parent2 = document.querySelectorAll("#img_usuario");
+parent.addEventListener('click', (e) => 
+{   
+        if(parent2[0] == e.target)
+        {
+            if(parent2[0].disabled)
+            {
+                parent2[0].disabled = false;
+                parent2[1].disabled = true;
+            }
+            parent2[1].disabled = true;
+        }
+        if(parent2[1] == e.target)
+        {
+            if(parent2[1].disabled)
+            {
+                parent2[1].disabled = false;
+                parent2[0].disabled = true;
+            }
+            parent2[0].disabled = true;
+        }
+        console.log(e.target)
+});

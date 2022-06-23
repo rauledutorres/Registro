@@ -56,7 +56,7 @@
                   <div class="tab-content">
                     <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
                       <h2 class="fw-bold mb-5">Sign up now</h2>
-                      <form>
+                      <form id="parent_codigo">
                         <!-- Codigo input -->
                         <div class="form-outline mb-4">
                           <input type="password" id="codigo" class="form-control" />
@@ -68,17 +68,21 @@
                     </div>
                     <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
                       <h2 class="fw-bold mb-5">Sign in now</h2>
-                        <form>
+                        <form id="parent">
                           <!-- Username input -->
                           <div class="form-outline mb-4">
                             <input type="text" id="nombre_usuario" class="form-control" />
                             <label class="form-label" for="registerUsername">Name</label>
                           </div>
+                          <!-- Img input -->
                           <div class="form-outline mb-4">
-                            <input type="url" id="img_usuario" class="form-control" />
-                            <label class="form-label" for="imgUsername">image</label>
+                            <input type="url" id="img_usuario" class="form-control " />
+                            <label class="form-label" for="imgUsername">image Url</label>
                           </div>
-                          <!-- Email input -->
+                          <div class="form-outline mb-4">
+                            <input type="file" id="img_usuario" class="form-control ">
+                          </div>
+                          <!-- Codigo input -->
                           <div class="form-outline mb-4">
                             <input type="password" id="codigo_usuario" class="form-control" />
                             <label class="form-label" for="loginPassword">Codigo</label>
