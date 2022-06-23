@@ -82,7 +82,14 @@ function comprobarDatos()
                 //obtenemos la fecha y hora del usuario despues de logiarse.
                 var fechaHoy = new Date();
                 var fechaAct = fechaHoy.getDate() + "/" + (fechaHoy.getMonth()+1) + "/" + fechaHoy.getFullYear();
-                var hora = fechaHoy.getHours() + ':' + fechaHoy.getMinutes();
+                if(fechaHoy.getMinutes() < 10)
+                {
+                    var hora = fechaHoy.getHours() + ':0' + fechaHoy.getMinutes();
+                }
+                else
+                {
+                    var hora = fechaHoy.getHours() + ':' + fechaHoy.getMinutes();
+                }
                 var fecha_salida ="";
                 var hora_salida ="";
                 // guardamos la fecha y la hora
