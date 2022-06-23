@@ -76,8 +76,11 @@
                           </div>
                           <!-- Img input -->
                           <div class="form-outline mb-4">
-                            <input type="url" id="img_usuario" class="form-control " required/>
+                            <input type="url" id="img_usuario" class="form-control img" required/>
                             <label class="form-label" for="imgUsername">image Url</label>
+                          </div>
+                          <div class="form-outline mb-4">
+                            <input type="file" id="formFile"class="form-control img" accept="image/*" />
                           </div>
                           <!-- Codigo input -->
                           <div class="form-outline mb-4">
@@ -85,7 +88,7 @@
                             <label class="form-label" for="loginPassword">Codigo</label>
                           </div>
                           <!-- Submit button -->
-                          <button type="submit" class="btn btn-primary btn-block mb-3" onclick="registro()">Sign in</button>
+                          <button type="button" class="btn btn-primary btn-block mb-3" onclick="functions()">Sign in</button>
                         </form>
                     </div>
                   </div>
@@ -101,6 +104,7 @@
         </div>
         <!-- Jumbotron -->
       </section>
+      <div id="imgTest"></div>
       <script src="registro.js"></script>
       <script>
         AOS.init();

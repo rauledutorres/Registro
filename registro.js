@@ -1,6 +1,7 @@
 //datos
 var usuarios = [];
 var resgistro_usuarios=[];
+var srcData2 = "";
 if(localStorage.getItem("usuarios") == null)
 {
     usuarios = [];
@@ -12,15 +13,47 @@ else
     usuarios =JSON.parse(localStorage.getItem("usuarios"));
     resgistro_usuarios =JSON.parse(localStorage.getItem("resgistro_usuarios"));
 }
-function registro()
+
+function codificarImg()
+{
+        const img_usuario = document.querySelector("#img_usuario");
+        const img_usuario1 = document.querySelector("#formFile");
+        var imgSubido = img_usuario1.files;
+        var imgNormal = img_usuario.value;
+        if(imgSubido.length > 0)
+        {
+
+                var fileToLoad = imgSubido[0];
+                if(fileToLoad)
+                {
+                var fileReader = new FileReader();
+        
+                fileReader.onload = function() 
+                {
+                var srcData = fileReader.result; // <--- data: base64
+                //console.log(srcData);
+                srcData2 = srcData;
+                console.log(srcData2);
+                }
+                fileReader.readAsDataURL(fileToLoad);
+                }
+            
+        }
+        else
+        {
+            srcData2 = imgNormal;
+        }
+
+}
+async function registro()
 {
     const codigo_usario = document.querySelector("#codigo_usuario");
     const nombre_usuario = document.querySelector("#nombre_usuario");
-    const img_usuario = document.querySelector("#img_usuario");
     const lista_usuarios = JSON.parse(localStorage.getItem("resgistro_usuarios"));
     var codigo = codigo_usario.value;
     var nombre = nombre_usuario.value;
-    var img = img_usuario.value;
+    var  img =  srcData2;
+    console.log("esto es la imagen despues de convertirlo: " + img)
     if(localStorage.getItem("resgistro_usuarios") == null)
     {
         if(codigo && nombre && img)
@@ -28,6 +61,10 @@ function registro()
             var usuario={codigo,nombre,img};
             resgistro_usuarios.push(usuario);
             guardarDatos();
+        }
+        else
+        {
+            alert("rellena los campos");
         }
     }
     else
@@ -44,12 +81,26 @@ function registro()
                 {
                     var usuario={codigo,nombre,img};
                     resgistro_usuarios.push(usuario);
-                }          
+                }
+                else
+                    {
+                        alert("rellena los campos");
+                    }        
             }
         }
         guardarDatos();
         
     }
+}
+function functions()
+{
+   // Call start
+    (async() => {
+        codificarImg();
+    
+        setTimeout(await  registro, 1000);
+        
+    })();
 }
 //comprobar la informacion
 function comprobarDatos()
@@ -158,7 +209,7 @@ parent_codigo.addEventListener('input', (e) =>
      console.log(e);
 });
 ///coger img
-/*const parent2 = document.querySelectorAll("#img_usuario");
+const parent2 = document.querySelectorAll(".img");
 parent.addEventListener('click', (e) => 
 {   
         if(parent2[0] == e.target)
@@ -180,4 +231,4 @@ parent.addEventListener('click', (e) =>
             parent2[0].disabled = true;
         }
         console.log(e.target)
-});*/
+});
