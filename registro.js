@@ -212,8 +212,12 @@ parent_codigo.addEventListener('input', (e) =>
 const parent2 = document.querySelectorAll(".img");
 parent.addEventListener('click', (e) => 
 {   
+    const img_usuario = document.querySelector("#img_usuario");
+    const img_usuario1 = document.querySelector("#formFile");
+    console.log(img_usuario);
         if(parent2[0] == e.target)
         {
+            img_usuario1.value ="";
             if(parent2[0].disabled)
             {
                 parent2[0].disabled = false;
@@ -223,6 +227,7 @@ parent.addEventListener('click', (e) =>
         }
         if(parent2[1] == e.target)
         {
+            img_usuario.value ="";
             if(parent2[1].disabled)
             {
                 parent2[1].disabled = false;
