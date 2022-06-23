@@ -30,7 +30,7 @@ function pintarCarta(){
         {
             h5.innerText = "Nombre:\n  " + registroUsuario[i].nombre;
             h6.innerText = "Codigo:\n  " + registroUsuario[i].codigo;
-            h7.innerText = "Hora de entrada:\n  " + usuarios[usuarios.length -1].objeto_fecha.hora +"\n";
+            h7.innerText = "Hora de entrada:\n  " + usuarios[usuarios.length -1].objeto_fecha.hora +"\n"(minutos < 10)? '0' + minutos : minutos;
             h8.innerText = "Fecha de entrada:\n  " + usuarios[usuarios.length -1].objeto_fecha.fechaAct;
             imgCarta.setAttribute("src", registroUsuario[i].img);
         }
