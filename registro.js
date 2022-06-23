@@ -29,11 +29,6 @@ function registro()
             resgistro_usuarios.push(usuario);
             guardarDatos();
         }
-        else
-        {
-            alert("Ingrese los datos");
-        }
-
     }
     else
     {
@@ -49,12 +44,7 @@ function registro()
                 {
                     var usuario={codigo,nombre,img};
                     resgistro_usuarios.push(usuario);
-                }
-                else
-                {
-                    alert("Ingrese los datos");
-                }
-                
+                }          
             }
         }
         guardarDatos();
@@ -167,3 +157,27 @@ parent_codigo.addEventListener('input', (e) =>
     }
      console.log(e);
 });
+///coger img
+/*const parent2 = document.querySelectorAll("#img_usuario");
+parent.addEventListener('click', (e) => 
+{   
+        if(parent2[0] == e.target)
+        {
+            if(parent2[0].disabled)
+            {
+                parent2[0].disabled = false;
+                parent2[1].disabled = true;
+            }
+            parent2[1].disabled = true;
+        }
+        if(parent2[1] == e.target)
+        {
+            if(parent2[1].disabled)
+            {
+                parent2[1].disabled = false;
+                parent2[0].disabled = true;
+            }
+            parent2[0].disabled = true;
+        }
+        console.log(e.target)
+});*/
