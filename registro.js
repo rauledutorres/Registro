@@ -16,11 +16,21 @@ function registro()
 {
     const codigo_usario = document.querySelector("#codigo_usuario");
     const nombre_usuario = document.querySelector("#nombre_usuario");
-    const img_usuario = document.querySelector("#img_usuario");
+    const img_usuario1 = document.querySelector("#img_usuario1");
+    const img_usuario2 = document.querySelector("#img_usuario2");
     const lista_usuarios = JSON.parse(localStorage.getItem("resgistro_usuarios"));
     var codigo = codigo_usario.value;
     var nombre = nombre_usuario.value;
-    var img = img_usuario.value;
+    if(img_usuario1.value)
+    {
+        img_usuario2.disabled = true;
+        var img = img_usuario1.value;
+    }
+    else
+    {
+        img_usuario1.disabled = true;
+        var img = img_usuario2.value;
+    }
     if(localStorage.getItem("resgistro_usuarios") == null)
     {
         if(codigo && nombre && img)
