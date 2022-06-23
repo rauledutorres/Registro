@@ -117,14 +117,15 @@ function comprobarDatos()
         else
         {
             localStorage.setItem("codigo_usuario",JSON.stringify(codigo));
+            window.location.assign("https://ispipa.github.io/Registro/Tabla.html");
             
         }
       
-        if ( document.querySelector("#codigo").value!=="") {
+        /*if ( document.querySelector("#codigo").value!=="") {
             window.location.assign("https://ispipa.github.io/Registro/Tabla.html");
         }else{
             alert("Ingrese datos");
-        }
+        }*/
         
     }
     
