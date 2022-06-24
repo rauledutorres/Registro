@@ -50,6 +50,10 @@ async function registro()
     const codigo_usario = document.querySelector("#codigo_usuario");
     const nombre_usuario = document.querySelector("#nombre_usuario");
     const lista_usuarios = JSON.parse(localStorage.getItem("resgistro_usuarios"));
+    const preg = document.getElementById("pills-register");
+    const plog = document.getElementById("pills-login");
+    const treg = document.getElementById("tab-register");
+    const tlog = document.getElementById("tab-login");
     var codigo = codigo_usario.value;
     var nombre = nombre_usuario.value;
     var  img =  srcData2;
@@ -61,6 +65,13 @@ async function registro()
             var usuario={codigo,nombre,img};
             resgistro_usuarios.push(usuario);
             guardarDatos();
+            if(preg.className == "tab-pane fade active show")
+            {
+                preg.className = "tab-pane fade";
+                plog.className = "tab-pane fade active show";
+                treg.className = "nav-link";
+                tlog.className = "nav-link active"
+            }
         }
         else
         {
@@ -89,6 +100,13 @@ async function registro()
             }
         }
         guardarDatos();
+        if(preg.className == "tab-pane fade active show")
+        {
+            preg.className = "tab-pane fade";
+            plog.className = "tab-pane fade active show";
+            treg.className = "nav-link";
+            tlog.className = "nav-link active"
+        }
         
     }
 }

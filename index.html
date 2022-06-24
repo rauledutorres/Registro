@@ -18,6 +18,8 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!--Lotties animation-->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -70,22 +72,34 @@
                       <h2 class="fw-bold mb-5">Sign in now</h2>
                         <form id="parent">
                           <!-- Username input -->
-                          <div class="form-outline mb-4">
-                            <input type="text" id="nombre_usuario" class="form-control" required/>
-                            <label class="form-label" for="registerUsername">Name</label>
+                          <div class="form-outline mb-4 ">
+                            <div class="input-group" style="align-items: center;">
+                              <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_ia8jpabk.json"  background="transparent"  speed="1"  style="width: 30px; height: 30px;"  loop  autoplay></lottie-player>
+                              <input type="text" id="nombre_usuario" class="form-control" required/>
+                              <label class="form-label" for="registerUsername"style="margin-left: 1.2rem;">Name</label>
+                            </div>
                           </div>
                           <!-- Img input -->
                           <div class="form-outline mb-4">
-                            <input type="url" id="img_usuario" class="form-control img" required/>
-                            <label class="form-label" for="imgUsername">image Url</label>
+                            <div class="input-group" style="align-items: center;">
+                              <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_xcs892pg.json"  background="transparent"  speed="1"  frames="[0,0.57]"style="width: 30px; height: 30px;"  loop  autoplay></lottie-player>
+                              <input type="url" id="img_usuario" class="form-control img" required/>
+                              <label class="form-label" for="imgUsername" style="margin-left: 1.2rem;">Image Url</label>
+                            </div>
                           </div>
                           <div class="form-outline mb-4">
-                            <input type="file" id="formFile"class="form-control img" accept="image/*" />
+                            <div class="input-group" style="align-items: center;">
+                              <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_9h7vr2l7.json"  background="transparent"  speed="1"  frames="[0,0.57]"style="width: 30px; height: 30px;"  loop  autoplay></lottie-player>
+                              <input type="file" id="formFile"class="form-control img" accept="image/*" />
+                            </div>
                           </div>
                           <!-- Codigo input -->
                           <div class="form-outline mb-4">
-                            <input type="password" id="codigo_usuario" class="form-control" required/>
-                            <label class="form-label" for="loginPassword">Codigo</label>
+                            <div class="input-group" style="align-items: center;">
+                              <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_p1ljeagm.json"  background="transparent"  speed="1"  frames="[0,0.57]"style="width: 30px; height: 30px;"  loop  autoplay></lottie-player>
+                              <input type="password" id="codigo_usuario" class="form-control" required/>
+                              <label class="form-label" for="loginPassword" style="margin-left: 1.2rem;">Codigo</label>
+                            </div>
                           </div>
                           <!-- Submit button -->
                           <button type="button" class="btn btn-primary btn-block mb-3" onclick="functions()">Sign in</button>
