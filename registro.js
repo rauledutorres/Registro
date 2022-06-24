@@ -1,6 +1,7 @@
 //datos
 var usuarios = [];
 var resgistro_usuarios=[];
+var srcData2 = "";
 if(localStorage.getItem("usuarios") == null)
 {
     usuarios = [];
@@ -12,11 +13,42 @@ else
     usuarios =JSON.parse(localStorage.getItem("usuarios"));
     resgistro_usuarios =JSON.parse(localStorage.getItem("resgistro_usuarios"));
 }
-function registro()
+
+function codificarImg()
+{
+        const img_usuario = document.querySelector("#img_usuario");
+        const img_usuario1 = document.querySelector("#formFile");
+        var imgSubido = img_usuario1.files;
+        var imgNormal = img_usuario.value;
+        if(imgSubido.length > 0)
+        {
+
+                var fileToLoad = imgSubido[0];
+                if(fileToLoad)
+                {
+                var fileReader = new FileReader();
+        
+                fileReader.onload = function() 
+                {
+                var srcData = fileReader.result; // <--- data: base64
+                //console.log(srcData);
+                srcData2 = srcData;
+                console.log(srcData2);
+                }
+                fileReader.readAsDataURL(fileToLoad);
+                }
+            
+        }
+        else
+        {
+            srcData2 = imgNormal;
+        }
+
+}
+async function registro()
 {
     const codigo_usario = document.querySelector("#codigo_usuario");
     const nombre_usuario = document.querySelector("#nombre_usuario");
-    const img_usuario = document.querySelector("#img_usuario");
     const lista_usuarios = JSON.parse(localStorage.getItem("resgistro_usuarios"));
     var codigo = codigo_usario.value;
     var nombre = nombre_usuario.value;
@@ -47,9 +79,15 @@ function registro()
             }
             else
             {
-                var usuario={codigo,nombre,img}
-                resgistro_usuarios.push(usuario);
-                
+                if(codigo && nombre && img)
+                {
+                    var usuario={codigo,nombre,img};
+                    resgistro_usuarios.push(usuario);
+                }
+                else
+                    {
+                        alert("rellena los campos");
+                    }        
             }
         }
         guardarDatos();
@@ -60,6 +98,16 @@ function registro()
             tlog.className = "nav-link active";
           }
     }
+}
+function functions()
+{
+   // Call start
+    (async() => {
+        codificarImg();
+    
+        setTimeout(await  registro, 1000);
+        
+    })();
 }
 //comprobar la informacion
 function comprobarDatos()
@@ -82,7 +130,14 @@ function comprobarDatos()
                 //obtenemos la fecha y hora del usuario despues de logiarse.
                 var fechaHoy = new Date();
                 var fechaAct = fechaHoy.getDate() + "/" + (fechaHoy.getMonth()+1) + "/" + fechaHoy.getFullYear();
-                var hora = fechaHoy.getHours() + ':' + fechaHoy.getMinutes();
+                if(fechaHoy.getMinutes() < 10)
+                {
+                    var hora = fechaHoy.getHours() + ':0' + fechaHoy.getMinutes();
+                }
+                else
+                {
+                    var hora = fechaHoy.getHours() + ':' + fechaHoy.getMinutes();
+                }
                 var fecha_salida ="";
                 var hora_salida ="";
                 // guardamos la fecha y la hora
@@ -110,13 +165,8 @@ function comprobarDatos()
         else
         {
             localStorage.setItem("codigo_usuario",JSON.stringify(codigo));
+            window.location.assign("https://ispipa.github.io/Registro/Tabla.html");
             
-        }
-      
-        if ( document.querySelector("#codigo").value!=="") {
-            window.location.assign("http://127.0.0.1:5500/Tabla.html#");
-        }else{
-            alert("Ingrese datos");
         }
         
     }
@@ -129,3 +179,68 @@ function guardarDatos()
     localStorage.setItem("usuarios",JSON.stringify(usuarios));
     localStorage.setItem("resgistro_usuarios",JSON.stringify(resgistro_usuarios));
 }
+//controlar clases
+const parent = document.querySelector("#parent");
+parent.addEventListener('input', (e) => 
+{   
+    const codigo_usario = document.querySelector("#codigo_usuario");
+    const nombre_usuario = document.querySelector("#nombre_usuario");
+    const img_usuario = document.querySelector("#img_usuario");
+    var codigo = codigo_usario.value;
+    var nombre= nombre_usuario.value;
+    var img = img_usuario.value; 
+    if(codigo)
+    {
+        e.target = e.target.classList.add('active');
+    }
+    if(nombre)
+    {
+        e.target = e.target.classList.add('active');
+    }
+    if(img)
+    {
+        e.target = e.target.classList.add('active');
+    }
+     console.log(e);
+});
+const parent_codigo = document.querySelector("#parent_codigo");
+parent_codigo.addEventListener('input', (e) => 
+{   
+    const codigo_usario = document.querySelector("#codigo");
+    var codigo = codigo_usario.value;
+
+    if(codigo)
+    {
+        e.target = e.target.classList.add('active');
+    }
+     console.log(e);
+});
+///coger img
+const parent2 = document.querySelectorAll(".img");
+parent.addEventListener('click', (e) => 
+{   
+    const img_usuario = document.querySelector("#img_usuario");
+    const img_usuario1 = document.querySelector("#formFile");
+    console.log(img_usuario);
+        if(parent2[0] == e.target)
+        {
+            img_usuario1.value ="";
+            if(parent2[0].disabled)
+            {
+                parent2[0].disabled = false;
+                parent2[1].disabled = true;
+            }
+            parent2[1].disabled = true;
+        }
+        if(parent2[1] == e.target)
+        {
+            img_usuario.value ="";
+            if(parent2[1].disabled)
+            {
+                parent2[1].disabled = false;
+                parent2[0].disabled = true;
+            }
+            parent2[0].disabled = true;
+        }
+        console.log(e.target)
+});
