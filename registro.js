@@ -181,7 +181,6 @@ function comprobarDatos()
         }
         
     }
-    
 }
 //GUARDAR LOS DATOS
 function guardarDatos()
