@@ -21,12 +21,21 @@ function registro()
     var codigo = codigo_usario.value;
     var nombre = nombre_usuario.value;
     var img =img_usuario.value;
+    const preg = document.getElementById("pills-register");
+    const plog = document.getElementById("pills-login");
+    const treg = document.getElementById("tab-register");
+    const tlog = document.getElementById("tab-login");
     if(localStorage.getItem("resgistro_usuarios") == null)
     {
         var usuario={codigo,nombre,img}
         resgistro_usuarios.push(usuario);
         guardarDatos();
-
+        if (preg.className == "tab-pane fade active show") {
+            preg.className = "tab-pane fade";
+            plog.className = "tab-pane fade active show";
+            treg.className = "nav-link";
+            tlog.className = "nav-link active";
+          }
     }
     else
     {
@@ -44,7 +53,12 @@ function registro()
             }
         }
         guardarDatos();
-        
+        if (preg.className == "tab-pane fade active show") {
+            preg.className = "tab-pane fade";
+            plog.className ="tab-pane fade active show";
+            treg.className = "nav-link";
+            tlog.className = "nav-link active";
+          }
     }
 }
 //comprobar la informacion
